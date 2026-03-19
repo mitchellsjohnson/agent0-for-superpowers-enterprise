@@ -1,0 +1,40 @@
+# V17 WebRTC
+
+## V17.1 TURN Server
+
+### v5.0.0-17.1.1 (L2)
+
+Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses.
+
+
+
+## V17.2 Media
+
+### v5.0.0-17.2.1 (L2)
+
+Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is managed and protected based on the documented policy for management of cryptographic keys.
+
+### v5.0.0-17.2.2 (L2)
+
+Verify that the media server is configured to use and support approved Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP).
+
+### v5.0.0-17.2.3 (L2)
+
+Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams.
+
+### v5.0.0-17.2.4 (L2)
+
+Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets.
+
+
+
+## V17.3 Signaling
+
+### v5.0.0-17.3.1 (L2)
+
+Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level.
+
+### v5.0.0-17.3.2 (L2)
+
+Verify that the signaling server is able to continue processing legitimate signaling messages when encountering malformed signaling message that could cause a denial of service condition. This could include implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
+

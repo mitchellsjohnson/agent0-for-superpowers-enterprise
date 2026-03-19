@@ -1,0 +1,93 @@
+# V16 Security Logging and Error Handling
+
+## V16.1 Security Logging Documentation
+
+### v5.0.0-16.1.1 (L2)
+
+Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled, and for how long logs are kept.
+
+
+## V16.2 General Logging
+
+### v5.0.0-16.2.1 (L2)
+
+Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens.
+
+### v5.0.0-16.2.2 (L2)
+
+Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit time zone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions.
+
+### v5.0.0-16.2.3 (L2)
+
+Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory.
+
+### v5.0.0-16.2.4 (L2)
+
+Verify that logs can be read and correlated by the log processor that is in use, preferably by using a common logging format.
+
+### v5.0.0-16.2.5 (L2)
+
+Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially.
+
+### SONATYPE-16.2.1 (L1)
+
+Verify that security event logs are retained for a minimum of 365 days.
+
+
+## V16.3 Security Events
+
+### v5.0.0-16.3.1 (L2)
+
+Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected.
+
+### v5.0.0-16.3.2 (L2)
+
+Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself).
+
+### v5.0.0-16.3.3 (L2)
+
+Verify that the application logs the security events that are defined in the documentation and also logs attempts to bypass the security controls, such as input validation, business logic, and anti-automation.
+
+### v5.0.0-16.3.4 (L2)
+
+Verify that the application logs unexpected errors and security control failures such as backend TLS failures.
+
+### SONATYPE-16.3.1 (L1)
+
+Verify that the application logs privilege escalation and permission change events, including both successful and failed attempts.
+
+### SONATYPE-16.3.2 (L1)
+
+Verify that the application logs API connection attempts, including both successful and failed attempts.
+
+
+## V16.4 Log Protection
+
+### v5.0.0-16.4.1 (L2)
+
+Verify that all logging components appropriately encode data to prevent log injection.
+
+### v5.0.0-16.4.2 (L2)
+
+Verify that logs are protected from unauthorized access and cannot be modified.
+
+### v5.0.0-16.4.3 (L2)
+
+Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not compromised.
+
+
+## V16.5 Error Handling
+
+### v5.0.0-16.5.1 (L2)
+
+Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens.
+
+### v5.0.0-16.5.2 (L2)
+
+Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation.
+
+### v5.0.0-16.5.3 (L2)
+
+Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail-open conditions such as processing a transaction despite errors resulting from validation logic.
+
+

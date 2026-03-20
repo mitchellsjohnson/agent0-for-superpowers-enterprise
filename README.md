@@ -19,13 +19,50 @@ See [MIGRATION.md](MIGRATION.md) for detailed comparison and migration paths.
 
 ## Quick Start
 
-1. **Fork this repository** for your company
-2. **Customize** agents, skills, and policies with your company's specifics:
-   - Replace `{{COMPANY_NAME}}`, `{{CRITICAL_SLA_DAYS}}`, etc. with your values
-   - See `policies/README.md` for full list of placeholders
-   - Customize `.template.md` files and remove `.template` suffix
-3. **Install** as a Claude Code plugin alongside Superpowers
-4. **Use** - Superpowers automatically consults your specialists when needed
+**See [INSTALLATION.md](INSTALLATION.md) for detailed step-by-step instructions with verification and testing.**
+
+### TL;DR Install
+
+```bash
+# 1. Fork this repo to your company's GitHub
+# https://github.com/mitchellsjohnson/agent0-for-superpowers-enterprise
+
+# 2. Clone and customize
+git clone https://github.com/YOUR-ORG/agent0-for-superpowers-YOUR-COMPANY.git
+cd agent0-for-superpowers-YOUR-COMPANY
+
+# 3. Replace placeholders with your company values
+find . -type f -name "*.md" -exec sed -i 's/{{COMPANY_NAME}}/Acme/g' {} +
+# See policies/README.md for full placeholder list
+
+# 4. Update plugin metadata
+# Edit .claude-plugin/plugin.json with your company name
+# Edit AGENT-INDEX.md with your company name
+
+# 5. Commit and push
+git add -A && git commit -m "feat: customize for Acme" && git push
+
+# 6. Install in Claude Code
+claude
+/plugin install superpowers
+/plugin install git@github.com:YOUR-ORG/agent0-for-superpowers-YOUR-COMPANY.git
+
+# 7. Test it works
+/plugin list  # Should show both plugins
+"What company specialists are available?"  # Should list your agents
+```
+
+### First Test
+
+```bash
+cd ~/test-project
+claude
+/brainstorm
+
+"I need to add user authentication"
+# Should spawn YOUR Security-Engineer + UX-Engineer
+# With YOUR company's SLAs, tools, standards
+```
 
 ## How It Works
 

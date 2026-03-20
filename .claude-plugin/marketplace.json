@@ -1,0 +1,19 @@
+{
+  "displayName": "Agent0 for Superpowers - Enterprise",
+  "tagline": "Make specialist knowledge available on-demand to eliminate bottlenecks",
+  "description": "Superpowers builds non-compliant software because it has no access to your enterprise's specialist knowledge (UX, Security, Testing, Product standards). Engineers wait days for specialist reviews, then do expensive rework.\n\nAgent0 for Superpowers solves this by making specialist knowledge available on-demand to every developer through spawnable agents that enforce company standards.\n\n**What You Get:**\n- **Specialist Agents**: UX, Security, SET, Product, Engineering agents with your company's rules\n- **Domain Skills**: Lifecycle scanning, SAST, threat modeling, accessibility audits\n- **Policy Templates**: Security SLAs, testing standards, UX guidelines, tech stack\n- **Integration Guides**: MCP server setup, CI/CD patterns\n\n**Perfect For:**\n- Enterprises with security/compliance requirements\n- Teams that need specialist reviews (UX, Security, Testing)\n- Organizations with defined coding standards\n- Companies using vulnerability scanning tools\n\n**How It Works:**\n1. Fork this repo as your company's starting point\n2. Replace `{{PLACEHOLDERS}}` with your actual values\n3. Spawn specialists on-demand: `Agent(subagent_type=\"your-plugin:Security-Engineer\")`\n4. Specialists enforce your rules without blocking human experts",
+  "category": "productivity",
+  "icon": "shield-check",
+  "tags": [
+    "enterprise",
+    "security",
+    "compliance",
+    "ux",
+    "testing",
+    "agents",
+    "specialists"
+  ],
+  "screenshots": [],
+  "documentation": "https://github.com/your-org/agent0-for-superpowers-enterprise#readme",
+  "support": "https://github.com/your-org/agent0-for-superpowers-enterprise/issues"
+}

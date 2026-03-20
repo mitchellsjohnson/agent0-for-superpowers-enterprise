@@ -1,0 +1,24 @@
+{
+  "name": "agent0-for-superpowers-enterprise",
+  "version": "1.0.0",
+  "description": "Enterprise framework for Superpowers - agents, skills, and policies for company-specific compliance",
+  "author": "Your Company",
+  "license": "MIT",
+  "homepage": "https://github.com/your-org/agent0-for-superpowers-enterprise",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/agent0-for-superpowers-enterprise.git"
+  },
+  "keywords": [
+    "superpowers",
+    "enterprise",
+    "security",
+    "compliance",
+    "ux",
+    "testing",
+    "agents"
+  ],
+  "claude": {
+    "minVersion": "1.0.0"
+  }
+}

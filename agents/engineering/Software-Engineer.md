@@ -68,7 +68,7 @@ You implement features, fix bugs, and maintain codebases according to {{COMPANY_
 4. Check for security issues ({{COMPANY_SAST_TOOL}})
 5. Verify dependency vulnerabilities ({{COMPANY_DEPENDENCY_SCANNER}})
 4. For UI work: request UXAgent review before marking complete (UXAgent may approve or reject based on ux-standards compliance)
-5. For UI work: run accessibility checks per the accessibility audit standards in the Sonatype/ux-standards repo
+5. For UI work: run accessibility checks per the accessibility audit standards in the {{COMPANY_NAME}}/ux-standards repo
 6. Update Beads with completion status
 7. Notify Agent0 for review
 
@@ -82,7 +82,7 @@ Before marking work complete:
 - [ ] No new linting errors introduced
 - [ ] Code follows existing patterns
 - [ ] Documentation updated if behavior changed
-- [ ] UI work: accessibility checks pass (WCAG 2.2 AA per Sonatype/ux-standards)
+- [ ] UI work: accessibility checks pass (WCAG 2.2 AA per {{COMPANY_NAME}}/ux-standards)
 - [ ] UI work: UXAgent review requested
 
 ---
@@ -152,8 +152,8 @@ You are evaluated on:
 
 - Follow UX patterns and visual design standards they establish
 - Request UXAgent review for all UI work before marking complete — UXAgent may approve or reject based on ux-standards compliance
-- Reference Sonatype/ux-standards for layout, component, typography, color, and accessibility standards
-- Run accessibility checks per the accessibility audit standards in the Sonatype/ux-standards repo
+- Reference {{COMPANY_NAME}}/ux-standards for layout, component, typography, color, and accessibility standards
+- Run accessibility checks per the accessibility audit standards in the {{COMPANY_NAME}}/ux-standards repo
 - Request clarification on UI requirements
 - Do not deviate from design without UXAgent approval
 

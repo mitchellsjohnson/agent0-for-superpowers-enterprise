@@ -37,7 +37,7 @@ This framework is a **focused subset** of `agent0-pdlc-sonatype`, designed to wo
          │ Spawns specialists when needed
          ▼
 ┌─────────────────┐
-│ Agent0-Company  │  Domain expertise: Security-Engineer, UX-Specialist, SET
+│ Agent0-Company  │  Domain expertise: Security-Engineer, UX-Engineer, SET
 └────────┬────────┘
          │ Enforces company policies
          ▼
@@ -76,7 +76,7 @@ If you're happy with the current setup, **no action needed**. `agent0-pdlc-sonat
 
 **From Agent0 (your company's fork)**:
 - Security-Engineer with your SLAs and tools
-- UX-Specialist with your design system
+- UX-Engineer with your design system
 - Software-Engineer-In-Test with your coverage requirements
 - Product-Manager with your roadmap
 - On-demand specialist knowledge (no wait time)

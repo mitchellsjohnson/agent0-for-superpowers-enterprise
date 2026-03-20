@@ -108,7 +108,7 @@ Replace the generic agent index with your company's actual specialists:
 
 **Available Agents**:
 - **Security-Engineer**: YOUR-COMPANY security policies, Fortify, Snyk scans
-- **UX-Specialist**: YOUR-COMPANY design system, accessibility standards
+- **UX-Engineer**: YOUR-COMPANY design system, accessibility standards
 - ...
 ```
 

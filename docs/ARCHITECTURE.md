@@ -37,7 +37,7 @@ Example:
 # YOUR-COMPANY Agent Index
 
 **Security-Engineer**: Post-implementation security reviews, vulnerability remediation
-**UX-Specialist**: Component design, accessibility reviews, design system
+**UX-Engineer**: Component design, accessibility reviews, design system
 ```
 
 ## Agent Spawning

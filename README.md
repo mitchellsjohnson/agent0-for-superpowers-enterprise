@@ -11,6 +11,10 @@
 - **Policy templates** with placeholders for your company's actual requirements
 - **Integration guides** for connecting your company's tools
 
+## Migrating from agent0-pdlc-sonatype?
+
+See [MIGRATION.md](MIGRATION.md) for detailed comparison and migration paths.
+
 ## Quick Start
 
 1. **Fork this repository** for your company

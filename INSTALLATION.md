@@ -125,9 +125,11 @@ git clone https://github.com/acme/agent0-for-superpowers-acme.git
 
 **Configure Cursor:**
 1. Open Cursor Settings (Cmd+, or Ctrl+,)
-2. Go to **Extensions** → **Claude**
-3. Add your Anthropic API key
-4. Enable both plugins
+2. Go to **Extensions** or **Plugins**
+3. Enable **Superpowers** plugin
+4. Enable **agent0-for-superpowers-acme** plugin
+
+**Note:** Cursor has Claude built-in, so no API key configuration is needed.
 
 **Verify in Cursor:**
 - Open command palette: Cmd+Shift+P

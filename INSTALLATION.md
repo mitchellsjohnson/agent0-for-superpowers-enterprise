@@ -83,41 +83,75 @@ git commit -m "feat: customize for Acme Corp"
 git push
 ```
 
-### 6. Install Superpowers
+### 6. Install in Claude Code or Cursor
+
+Choose your environment:
+
+#### Option A: Claude Code (CLI)
 
 ```bash
 claude
 
 # Inside Claude Code:
 /plugin install superpowers
-/plugin list
-# Should show: superpowers
-```
-
-### 7. Install Your Customized Plugin
-
-**Option A: From GitHub (recommended for teams)**
-```bash
-# In Claude Code:
 /plugin install git@github.com:acme/agent0-for-superpowers-acme.git
 
-# Or HTTPS:
-/plugin install https://github.com/acme/agent0-for-superpowers-acme.git
-```
-
-**Option B: From local directory (for testing)**
-```bash
-# In Claude Code:
-/plugin install /path/to/agent0-for-superpowers-acme
-```
-
-### 8. Verify Installation
-
-```bash
+# Verify:
 /plugin list
 # Should show:
 #   - superpowers
 #   - agent0-for-superpowers-acme
+```
+
+**Or from local directory (for testing):**
+```bash
+/plugin install /path/to/agent0-for-superpowers-acme
+```
+
+#### Option B: Cursor (IDE)
+
+```bash
+# Clone plugins to Cursor directory
+cd ~/.cursor/plugins
+
+# Install Superpowers
+git clone https://github.com/anthropics/superpowers.git
+
+# Install your customized Agent0
+git clone git@github.com:acme/agent0-for-superpowers-acme.git
+# Or HTTPS:
+git clone https://github.com/acme/agent0-for-superpowers-acme.git
+```
+
+**Configure Cursor:**
+1. Open Cursor Settings (Cmd+, or Ctrl+,)
+2. Go to **Extensions** → **Claude**
+3. Add your Anthropic API key
+4. Enable both plugins
+
+**Verify in Cursor:**
+- Open command palette: Cmd+Shift+P
+- Run: `> Claude: List Plugins`
+- Should show: superpowers, agent0-for-superpowers-acme
+
+### 7. How It Works
+
+**Both environments:**
+1. **Superpowers orchestrates** development workflows (brainstorming, planning, TDD, verification)
+2. **At session start**, Superpowers reads your `AGENT-INDEX.md` (~500 tokens, cached)
+3. **When specialist needed**, Superpowers spawns via `Agent(subagent_type="agent0-for-superpowers-acme:Security-Engineer")`
+4. **Agent provides context** from your company's policies, tools, standards
+5. **On-demand loading**: Only load full agent definitions when actually spawned
+
+**Example flow:**
+```
+You: "/brainstorm - Add payment processing"
+Superpowers: [Reads AGENT-INDEX.md from agent0-for-superpowers-acme]
+             [Spawns Security-Engineer + UX-Engineer based on index]
+Security-Engineer: "For PCI compliance, use approved payment gateway.
+                    Critical vulns: 7-day SLA per your SECURITY-POLICY.md"
+UX-Engineer: "Use PaymentForm component from your design system."
+Superpowers: [Continues brainstorming with your company context]
 ```
 
 ## Testing Your Installation

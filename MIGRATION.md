@@ -90,7 +90,7 @@ If you're happy with the current setup, **no action needed**. `agent0-pdlc-sonat
 ### Install This Framework
 ```bash
 # If using the public enterprise framework (customize first)
-git clone https://github.com/sonatype/agent0-for-superpowers-enterprise.git
+git clone https://github.com/mitchellsjohnson/agent0-for-superpowers-enterprise.git
 cd agent0-for-superpowers-enterprise
 # Replace {{PLACEHOLDERS}} with your values
 claude plugin install .
@@ -141,7 +141,7 @@ Security-Engineer: "Here's what to watch for: session management, CSRF..."
 
 ## Support
 
-- **Enterprise framework**: https://github.com/sonatype/agent0-for-superpowers-enterprise/issues
+- **Enterprise framework**: https://github.com/mitchellsjohnson/agent0-for-superpowers-enterprise/issues
 - **Sonatype instance**: Contact #agent0 Slack channel
 - **agent0-pdlc-sonatype**: https://github.com/sonatype/agent0-pdlc-sonatype/issues
 

@@ -1,8 +1,10 @@
 # Agent0 for Superpowers: Enterprise Context Layer
 
-**The Problem**: Superpowers builds non-compliant software because it has no access to your enterprise's specialist knowledge (UX, Security, Testing, Product standards). Engineers wait days for specialist reviews, then do expensive rework.
+**Superpowers is amazing** for orchestrating development workflows - brainstorming, planning, TDD, execution. It puts tremendous power in the hands of engineers.
 
-**The Solution**: Agent0 for Superpowers makes specialist knowledge available on-demand to every developer, eliminating specialist bottlenecks and shifting compliance left.
+**But garbage in = garbage out.** Without access to your enterprise's specialist knowledge (Security, UX, Product, Testing standards), even the best workflows can't guarantee compliant, beautiful, easy-to-use software.
+
+**Agent0 provides the missing context layer** - a structured knowledge graph of your enterprise specialists, their skills, and your policies. This makes Superpowers truly "Superpowered for the enterprise."
 
 ## What This Framework Provides
 
@@ -36,34 +38,60 @@ Developer → Superpowers (workflows) → Agent0-YourCompany (specialists) → C
 - Specialist provides guidance based on your company's actual policies
 - Software is built compliant from the start, not fixed after review
 
-## The Problem: Specialist Bottlenecks
+## The Real Problem: Specialist Bottleneck
 
-Nobody in your enterprise knows all the rules. That's why you have specialists:
-- **UX Specialists** know design systems, accessibility standards
-- **Security Engineers** know security policies, SLAs, compliance
-- **Software Engineers in Test** know testing standards, Definition of Done
-- **Product Managers** know product strategy, roadmap alignment
+Specialists need to be involved **continuously** through brainstorming, planning, and development - not just at the end for review. But they're scarce and shared:
 
-These specialists are **shared resources** - one Security Engineer supporting 5 teams, one UX Specialist reviewing 10 projects. They become bottlenecks:
-- Work waits days/weeks in review queues
-- Expensive late-stage rework after specialist review
+**The ratios are brutal:**
+- 1 Security Engineer : 100 Software Engineers
+- 1 UX Engineer : 25 Developers (even in design-forward orgs)
+- 1 Product Manager should spend 75%+ time in field, not managing delivery
+
+**GenAI makes this worse:**
+- More engineering capacity
+- Same specialist capacity
+- Bigger bottleneck
+
+**Traditional approach fails:**
+- Specialists define requirements upfront (doesn't work - real world is messy)
+- Engineers implement without specialist involvement
+- Late-stage review catches problems
+- Expensive rework, long wait times
 - Specialists burn out from constant context-switching
 
-## The Solution: On-Demand Expertise
+**What's actually needed:**
+- Specialists involved during brainstorming ("What's the right UX pattern?")
+- Specialists involved during planning ("What security risks exist?")
+- Specialists involved during development ("Does this meet standards?")
+- But human specialists can't scale to that level of involvement
 
-Agent0 makes specialist knowledge available to every developer without waiting for the human specialist:
+## The Solution: Agent0 + Superpowers
 
-**Traditional flow:**
+**Superpowers gives you the orchestration:** brainstorming, planning, TDD, execution.
+
+**Agent0 gives you the enterprise context:** security requirements, UX patterns, testing standards, product strategy.
+
+**Together, they enable continuous specialist involvement at scale:**
+
+**Without Agent0:**
 ```
-Engineer → Build → Wait 3 days for UX → Rework 2 days → Wait 5 days for Security → Rework 3 days
-Total: 15 days (5 days rework, 8 days waiting)
+Superpowers: "Let's build login"
+Engineer: "I'll use basic form, password in localStorage..." (no context)
+→ Build → Wait 3 days for Security → "No! Use OAuth, encrypt secrets..." → Rework 3 days
+→ Wait 2 days for UX → "No! Use design system, add accessibility..." → Rework 2 days
+Total: 10+ days (5 days rework, 5 days waiting)
 ```
 
 **With Agent0:**
 ```
-Engineer → Consult UX-Agent during design → Consult Security-Engineer during implementation
-Total: 2 days (compliance built in, zero rework, zero wait time)
+Superpowers: "Let's build login" → spawns Security-Engineer + UX-Engineer
+Security-Engineer: "Use OAuth, here's the approved library, encrypt at rest"
+UX-Engineer: "Use LoginForm component, here's accessibility checklist"
+Engineer: Builds it right the first time
+Total: 2 days (zero rework, zero wait time)
 ```
+
+**Specialists manage their agents/skills/policies** - Security team maintains Security-Engineer, UX team maintains UX-Engineer. They encode their knowledge once, benefit everywhere.
 
 ## ROI: $56K-104K Saved Per 10 Projects
 

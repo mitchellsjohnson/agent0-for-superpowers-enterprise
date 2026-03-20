@@ -110,31 +110,37 @@ claude
 
 #### Option B: Cursor (IDE)
 
+**Install Superpowers:**
+1. Open Cursor
+2. Go to **Extensions** (Cmd+Shift+X or Ctrl+Shift+X)
+3. Search for **"Superpowers"**
+4. Click **Install**
+
+**Install your customized Agent0 plugin:**
+
+*Option B1: From Cursor Marketplace (if you've published it)*
+1. Go to **Extensions** in Cursor
+2. Search for **"agent0-for-superpowers-acme"**
+3. Click **Install**
+
+*Option B2: From Source (local development)*
 ```bash
-# Clone plugins to Cursor directory
+# Clone to Cursor's plugin directory
 cd ~/.cursor/plugins
-
-# Install Superpowers
-git clone https://github.com/anthropics/superpowers.git
-
-# Install your customized Agent0
 git clone git@github.com:acme/agent0-for-superpowers-acme.git
 # Or HTTPS:
 git clone https://github.com/acme/agent0-for-superpowers-acme.git
 ```
 
-**Configure Cursor:**
-1. Open Cursor Settings (Cmd+, or Ctrl+,)
-2. Go to **Extensions** or **Plugins**
-3. Enable **Superpowers** plugin
-4. Enable **agent0-for-superpowers-acme** plugin
-
-**Note:** Cursor has Claude built-in, so no API key configuration is needed.
+Then restart Cursor to load the plugin.
 
 **Verify in Cursor:**
-- Open command palette: Cmd+Shift+P
-- Run: `> Claude: List Plugins`
-- Should show: superpowers, agent0-for-superpowers-acme
+1. Go to **Extensions** (Cmd+Shift+X or Ctrl+Shift+X)
+2. You should see:
+   - ✅ **Superpowers** (enabled)
+   - ✅ **agent0-for-superpowers-acme** (enabled)
+
+**Note:** Cursor has Claude built-in, so no API key configuration is needed.
 
 ### 7. How It Works
 

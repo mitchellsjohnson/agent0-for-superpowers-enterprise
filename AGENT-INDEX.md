@@ -9,7 +9,7 @@ This index lists available specialists. Spawn via `Agent(subagent_type="agent0-f
 - **Software-Engineer**: {{COMPANY_NAME}} development practices, tech stack guidance, code patterns
 - **Software-Engineer-In-Test**: Test strategy, coverage requirements, testing best practices, DoD certification
 - **DevOps-Engineer**: CI/CD pipelines, deployment automation, infrastructure as code
-- **Segment-Tech-Lead**: Technical leadership for product segments, architecture decisions, team coordination
+- **Software-Architect**: Technical leadership, architecture decisions, system design, technology strategy
 
 **Security:**
 - **Security-Engineer**: Post-implementation security reviews, vulnerability remediation, SAST/dependency scanning

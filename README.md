@@ -14,7 +14,10 @@
 ## Quick Start
 
 1. **Fork this repository** for your company
-2. **Customize** agents, skills, and policies with your company's specifics (see [CUSTOMIZATION-GUIDE.md](docs/CUSTOMIZATION-GUIDE.md))
+2. **Customize** agents, skills, and policies with your company's specifics:
+   - Replace `{{COMPANY_NAME}}`, `{{CRITICAL_SLA_DAYS}}`, etc. with your values
+   - See `policies/README.md` for full list of placeholders
+   - Customize `.template.md` files and remove `.template` suffix
 3. **Install** as a Claude Code plugin alongside Superpowers
 4. **Use** - Superpowers automatically consults your specialists when needed
 
@@ -67,10 +70,11 @@ Total: 2 days (compliance built in, zero rework, zero wait time)
 
 ## Documentation
 
-- [Why Agent0 for Superpowers](docs/WHY.md) - Problem statement and value proposition
-- [Getting Started](docs/GETTING-STARTED.md) - Fork and customize this framework
-- [Customization Guide](docs/CUSTOMIZATION-GUIDE.md) - Step-by-step customization
-- [Architecture](docs/ARCHITECTURE.md) - How it integrates with Superpowers
+- **Policies**: See `policies/` for security, testing, UX, and tech stack templates
+- **Agents**: See `agents/` for agent definitions (Engineering, Security, UX, Product, SET)
+- **Skills**: See `skills/` for reusable workflows (security scanning, testing, accessibility)
+- **Integration**: See `integrations/` for MCP server setup and CI/CD patterns
+- **Agent Index**: See `AGENT-INDEX.md` for how Superpowers discovers specialists
 
 ## License
 

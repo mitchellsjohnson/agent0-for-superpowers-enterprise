@@ -83,11 +83,9 @@ git commit -m "feat: customize for Acme Corp"
 git push
 ```
 
-### 6. Install in Claude Code or Cursor
+### 6. Install in Claude Code
 
-Choose your environment:
-
-#### Option A: Claude Code (CLI)
+**Note:** These are Claude Code plugins. They work with Claude Code (Anthropic's CLI tool), not with Cursor or other IDEs.
 
 ```bash
 claude
@@ -108,43 +106,7 @@ claude
 /plugin install /path/to/agent0-for-superpowers-acme
 ```
 
-#### Option B: Cursor (IDE)
-
-**Install Superpowers:**
-1. Open Cursor
-2. Go to **Extensions** (Cmd+Shift+X or Ctrl+Shift+X)
-3. Search for **"Superpowers"**
-4. Click **Install**
-
-**Install your customized Agent0 plugin:**
-
-*Option B1: From Cursor Marketplace (if you've published it)*
-1. Go to **Extensions** in Cursor
-2. Search for **"agent0-for-superpowers-acme"**
-3. Click **Install**
-
-*Option B2: From Source (local development)*
-```bash
-# Clone to Cursor's plugin directory
-cd ~/.cursor/plugins
-git clone git@github.com:acme/agent0-for-superpowers-acme.git
-# Or HTTPS:
-git clone https://github.com/acme/agent0-for-superpowers-acme.git
-```
-
-Then restart Cursor to load the plugin.
-
-**Verify in Cursor:**
-1. Go to **Extensions** (Cmd+Shift+X or Ctrl+Shift+X)
-2. You should see:
-   - ✅ **Superpowers** (enabled)
-   - ✅ **agent0-for-superpowers-acme** (enabled)
-
-**Note:** Cursor has Claude built-in, so no API key configuration is needed.
-
 ### 7. How It Works
-
-**Both environments:**
 1. **Superpowers orchestrates** development workflows (brainstorming, planning, TDD, verification)
 2. **At session start**, Superpowers reads your `AGENT-INDEX.md` (~500 tokens, cached)
 3. **When specialist needed**, Superpowers spawns via `Agent(subagent_type="agent0-for-superpowers-acme:Security-Engineer")`

@@ -1,6 +1,8 @@
 # Building Your Company's Plugin
 
-This guide explains how to fork this generic framework and build it into a plugin for your company.
+This guide explains how to fork this generic framework and build it into a **Claude Code plugin** for your company.
+
+**For Cursor:** This framework builds Claude Code plugins. To use in Cursor, you would need to create a separate Cursor-specific plugin following Cursor's structure (https://cursor.com/blog/marketplace). This guide covers Claude Code only.
 
 ## Overview
 
@@ -157,32 +159,25 @@ claude
 /plugin install git@github.com:acme/agent0-for-superpowers-acme.git
 ```
 
-**For Cursor:**
-1. Extensions → Browse Cursor Marketplace → "Install from URL"
-2. Or clone locally: `git clone git@github.com:acme/agent0-for-superpowers-acme.git`
-3. Extensions → Install from Local → Point to cloned directory
-
 **Advantages:**
 - ✅ Private repo (GitHub controls access)
 - ✅ Easy updates: `/plugin update`
 - ✅ Version control via git
 - ✅ Team collaboration
 
-### Option B: Publish to Cursor Marketplace (Public)
+### Option B: Cursor Plugin (Separate Project)
 
-**Only if you want public distribution:**
+This framework builds **Claude Code plugins**. To make a Cursor version:
 
-1. **Review marketplace.json** (see Step 3)
+1. **Create a separate Cursor plugin project** following Cursor's structure: https://cursor.com/blog/marketplace
+2. **Port the content** (agents, skills, policies) from this repo to Cursor format
+3. **Publish to Cursor marketplace** or distribute internally
 
-2. **Follow Cursor's publishing guide:**
-   - https://cursor.com/blog/marketplace#build-and-share-your-own-plugins
-   - Submit for review
-   - Once approved, appears in marketplace
+**Note:** Cursor and Claude Code use different plugin systems. You would maintain:
+- `agent0-for-superpowers-acme` (Claude Code - this repo)
+- `agent0-cursor-acme` (Cursor - separate repo with different structure)
 
-3. **Consider:**
-   - Publishing makes your company policies/tools public
-   - May not want competitors to see your standards
-   - Private GitHub repo is usually better
+**Recommendation:** Start with Claude Code. Build Cursor version later if there's demand.
 
 ## Step 6: Test Your Plugin
 

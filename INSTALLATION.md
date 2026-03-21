@@ -83,9 +83,11 @@ git commit -m "feat: customize for Acme Corp"
 git push
 ```
 
-### 6. Install in Claude Code
+### 6. Install the Plugins
 
-**Note:** These are Claude Code plugins. They work with Claude Code (Anthropic's CLI tool), not with Cursor or other IDEs.
+Choose your environment: **Claude Code (CLI)** or **Cursor (IDE)**.
+
+#### Option A: Claude Code (CLI)
 
 ```bash
 claude
@@ -105,6 +107,40 @@ claude
 ```bash
 /plugin install /path/to/agent0-for-superpowers-acme
 ```
+
+#### Option B: Cursor (IDE)
+
+**Install Superpowers from Cursor Marketplace:**
+
+1. Open Cursor
+2. Open Command Palette (Cmd+Shift+P or Ctrl+Shift+P)
+3. Type: `Extensions: Browse Cursor Marketplace`
+4. Search for **"Superpowers"**
+5. Click **Install**
+
+**Install your customized Agent0 plugin:**
+
+*If publishing to Cursor Marketplace:*
+1. Follow Cursor's plugin publishing guide: https://cursor.com/blog/marketplace#build-and-share-your-own-plugins
+2. Once published, install from marketplace like Superpowers
+
+*For local development/testing:*
+1. Clone your customized repo: `git clone git@github.com:acme/agent0-for-superpowers-acme.git`
+2. Open Cursor Settings → Extensions → Install from VSIX/Local
+3. Point to your cloned plugin directory
+4. Restart Cursor
+
+**Verify in Cursor:**
+1. Open Extensions panel (Cmd+Shift+X or Ctrl+Shift+X)
+2. Both plugins should show as enabled:
+   - ✅ Superpowers
+   - ✅ agent0-for-superpowers-acme
+
+**Using in Cursor:**
+1. Open Claude chat panel in Cursor
+2. Type `/brainstorm` to start Superpowers workflows
+3. Superpowers reads your AGENT-INDEX.md and spawns specialists automatically
+4. Your company's specialists provide context throughout development
 
 ### 7. How It Works
 1. **Superpowers orchestrates** development workflows (brainstorming, planning, TDD, verification)

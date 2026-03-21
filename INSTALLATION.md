@@ -2,13 +2,27 @@
 
 **For companies creating their own Agent0 implementation**
 
+## Two Guides
+
+This installation guide has two parts:
+
+1. **[PLUGIN-BUILD.md](PLUGIN-BUILD.md)** - How to fork this repo, customize it for your company, and build it into a plugin ⭐ **Start here**
+2. **This file** - How engineers install your customized plugin once it's built
+
+## Quick Navigation
+
+- **Building your plugin?** → See [PLUGIN-BUILD.md](PLUGIN-BUILD.md) for complete fork/customize/build instructions
+- **Installing an existing plugin?** → Continue reading below
+
+---
+
 ## Overview
 
-This is a **generic framework**. You'll:
-1. Fork this repo
+This is a **generic framework**. Your company will:
+1. Fork this repo (see [PLUGIN-BUILD.md](PLUGIN-BUILD.md))
 2. Customize with your company's values
-3. Install as a Claude Code plugin
-4. Your engineers use it with Superpowers
+3. Build as a plugin
+4. Your engineers install it (instructions below)
 
 ## Step-by-Step
 

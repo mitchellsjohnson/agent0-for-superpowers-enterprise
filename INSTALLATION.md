@@ -97,9 +97,11 @@ git commit -m "feat: customize for Acme Corp"
 git push
 ```
 
-### 6. Install in Claude Code
+### 6. Install in Claude Code or Cursor
 
-**Important:** This builds a **Claude Code plugin**. For Cursor, you would need to create a separate Cursor-specific plugin following Cursor's plugin structure.
+This plugin works with **both Claude Code and Cursor**. Choose your environment:
+
+#### Claude Code Installation
 
 ```bash
 claude
@@ -120,20 +122,30 @@ claude
 /plugin install /path/to/agent0-for-superpowers-acme
 ```
 
-### 7. Using in Cursor
+#### Cursor Installation
 
-**Note:** This framework builds **Claude Code plugins**. To use in Cursor, you would need to:
+**Install Superpowers:**
+1. Open Cursor
+2. Extensions (Cmd+Shift+X) → Search "Superpowers" → Install
 
-1. Install **Superpowers** from Cursor Marketplace (available at https://cursor.com/marketplace)
-2. Build a **Cursor-specific version** of your agent plugin following Cursor's plugin structure: https://cursor.com/blog/marketplace
+**Install your customized plugin:**
 
-Cursor and Claude Code use different plugin systems:
-- **Claude Code**: Uses `.claude-plugin/` directory structure
-- **Cursor**: Uses different plugin structure (see Cursor documentation)
+```bash
+# 1. Clone your customized repo
+git clone git@github.com:acme/agent0-for-superpowers-acme.git
 
-This repo is structured for Claude Code. A Cursor version would need to be built separately with Cursor's requirements.
+# 2. Symlink to Cursor's local plugins
+mkdir -p ~/.cursor/plugins/local
+ln -s /path/to/agent0-for-superpowers-acme ~/.cursor/plugins/local/agent0-for-superpowers-acme
 
-### 8. How It Works
+# 3. Restart Cursor or reload window (Cmd+Shift+P → "Developer: Reload Window")
+```
+
+**Verify:**
+- Open Extensions panel
+- Both should show: Superpowers ✅, agent0-for-superpowers-acme ✅
+
+### 7. How It Works
 1. **Superpowers orchestrates** development workflows (brainstorming, planning, TDD, verification)
 2. **At session start**, Superpowers reads your `AGENT-INDEX.md` (~500 tokens, cached)
 3. **When specialist needed**, Superpowers spawns via `Agent(subagent_type="agent0-for-superpowers-acme:Security-Engineer")`

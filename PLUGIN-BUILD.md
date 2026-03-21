@@ -1,8 +1,6 @@
 # Building Your Company's Plugin
 
-This guide explains how to fork this generic framework and build it into a **Claude Code plugin** for your company.
-
-**For Cursor:** This framework builds Claude Code plugins. To use in Cursor, you would need to create a separate Cursor-specific plugin following Cursor's structure (https://cursor.com/blog/marketplace). This guide covers Claude Code only.
+This guide explains how to fork this generic framework and build it into a plugin for your company that works with **both Claude Code and Cursor**.
 
 ## Overview
 
@@ -65,7 +63,9 @@ done
 
 ## Step 3: Configure Plugin Metadata
 
-### Edit `.claude-plugin/plugin.json`
+You need to update plugin metadata for **both Claude Code and Cursor**.
+
+### Edit `.claude-plugin/plugin.json` (for Claude Code)
 
 ```json
 {
@@ -98,6 +98,34 @@ done
 - `homepage`: Your fork's GitHub URL
 - `repository.url`: Your fork's git URL
 - `keywords`: Your company name
+
+### Edit `.cursor-plugin/plugin.json` (for Cursor)
+
+```json
+{
+  "name": "agent0-for-superpowers-acme",
+  "version": "1.0.0",
+  "description": "Acme specialist agents for Superpowers",
+  "author": {
+    "name": "Acme Corp"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/acme/agent0-for-superpowers-acme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acme/agent0-for-superpowers-acme.git"
+  },
+  "keywords": [
+    "superpowers",
+    "acme",
+    "security",
+    "compliance"
+  ]
+}
+```
+
+**Key fields to update:**
+- Same as Claude Code version (name, description, URLs, keywords)
 
 ### Edit `.claude-plugin/marketplace.json`
 
@@ -161,23 +189,30 @@ claude
 
 **Advantages:**
 - ✅ Private repo (GitHub controls access)
-- ✅ Easy updates: `/plugin update`
+- ✅ Works for both Claude Code and Cursor users
+- ✅ Easy updates: `/plugin update` (Claude Code) or git pull (Cursor)
 - ✅ Version control via git
 - ✅ Team collaboration
 
-### Option B: Cursor Plugin (Separate Project)
+**Cursor users install the same repo:**
+```bash
+# Clone once, works for both environments
+git clone git@github.com:acme/agent0-for-superpowers-acme.git
 
-This framework builds **Claude Code plugins**. To make a Cursor version:
+# Cursor users symlink to local plugins
+mkdir -p ~/.cursor/plugins/local
+ln -s /path/to/agent0-for-superpowers-acme ~/.cursor/plugins/local/agent0-for-superpowers-acme
+```
 
-1. **Create a separate Cursor plugin project** following Cursor's structure: https://cursor.com/blog/marketplace
-2. **Port the content** (agents, skills, policies) from this repo to Cursor format
-3. **Publish to Cursor marketplace** or distribute internally
+### Option B: Publish to Marketplaces (Public)
 
-**Note:** Cursor and Claude Code use different plugin systems. You would maintain:
-- `agent0-for-superpowers-acme` (Claude Code - this repo)
-- `agent0-cursor-acme` (Cursor - separate repo with different structure)
+**Only if you want public distribution:**
 
-**Recommendation:** Start with Claude Code. Build Cursor version later if there's demand.
+**For Claude Code:** Review `.claude-plugin/marketplace.json` and follow Claude Code publishing process
+
+**For Cursor:** Follow https://cursor.com/blog/marketplace publishing guide
+
+**Note:** Publishing makes your company policies/tools public. Usually better to keep private on GitHub.
 
 ## Step 6: Test Your Plugin
 

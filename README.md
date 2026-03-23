@@ -15,7 +15,7 @@
 
 ## Migrating from agent0-pdlc-sonatype?
 
-See [MIGRATION.md](MIGRATION.md) for detailed comparison and migration paths.
+See [MIGRATION.md](MIGRATION.md) for detailed comparison and migration paths. For the **org-first directory layout** and build model, see [MIGRATION-GUIDE.md](MIGRATION-GUIDE.md).
 
 ## Quick Start
 

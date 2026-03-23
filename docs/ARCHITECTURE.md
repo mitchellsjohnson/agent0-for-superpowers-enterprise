@@ -54,8 +54,8 @@ Agent(
 ```
 
 Agent loads:
-- `policies/SECURITY-POLICY.md`
-- `skills/security/*`
+- `security/policies/SECURITY-POLICY.md` (or built copy under `plugin/`)
+- `security/skills/*`
 - Agent definition with tools/processes
 
 Agent provides guidance, then exits (context freed).
@@ -93,9 +93,14 @@ Claude Code's plugin system allows multiple plugins to coexist:
 ```
 agent0-for-superpowers-YOUR-COMPANY/
 ├── AGENT-INDEX.md          ← Discovery file (Superpowers reads this)
-├── agents/                 ← Specialist definitions (spawned on-demand)
-├── skills/                 ← Domain workflows (invoked on-demand)
-├── policies/               ← Standards (agents read these)
+├── security/               ← security/agents, security/skills, security/policies
+├── data/                   ← data/agents, data/skills, data/policies
+├── engineering/            ← engineering/agents, engineering/skills, engineering/policies
+├── product/                ← product/agents, product/skills, product/policies
+├── ux/                     ← ux/agents, ux/skills, ux/policies
+├── config.yaml.example     ← Template for fork-specific config.yaml
+├── build.sh                ← Merges templates + config (+ overrides/) → plugin/
+├── plugin/                 ← Generated installable tree (after build)
 └── integrations/           ← Tool guides (agents reference these)
 ```
 

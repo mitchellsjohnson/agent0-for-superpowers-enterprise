@@ -1,7 +1,21 @@
 # {{COMPANY_NAME}} Agent Index
 
 **When Superpowers needs domain expertise:**
-This index lists available specialists. Spawn via `Agent(subagent_type="agent0-for-superpowers-{{COMPANY_NAME}}:<agent-name>")`.
+This index lists available specialists. Spawn via `Agent(subagent_type="{{plugin_id}}:<agent-name>")`.
+
+## Agent definitions (paths)
+
+Templates live under org-first directories (each domain has `agents/`, `skills/`, `policies/`, `tools/`):
+
+| Domain | Agents |
+|--------|--------|
+| Engineering | `engineering/agents/` (e.g. `Software-Engineer.md`, `DevOps-Engineer.md`) |
+| Security | `security/agents/` (e.g. `Security-Engineer.md`, `Security-Architect.md`) |
+| UX | `ux/agents/` (e.g. `UX-Engineer.md`, `Technical-Writer.md`) |
+| Product | `product/agents/` (e.g. `Product-Manager.md`) |
+| Data | `data/agents/` (e.g. `Data-Engineer.md`) |
+
+Policies: `security/policies/`, `engineering/policies/`, `ux/policies/`, `product/policies/`. Skills: `*/skills/` under each domain.
 
 ## Available Agents
 
@@ -42,4 +56,4 @@ This index lists available specialists. Spawn via `Agent(subagent_type="agent0-f
 
 ## Customization
 
-Replace `{{COMPANY_NAME}}` with your company name and update agent descriptions with your company's actual tools and processes.
+Set `company`, `plugin_id`, and tool fields in `config.yaml` (see `config.yaml.example`), run `./build.sh`, and install from the generated `plugin/` directory. The build substitutes `{{COMPANY_NAME}}`, `{{plugin_id}}`, and other placeholders in markdown. For manual edits without the build, replace placeholders directly and keep `plugin_id` aligned with `.claude-plugin/plugin.json` `name`.

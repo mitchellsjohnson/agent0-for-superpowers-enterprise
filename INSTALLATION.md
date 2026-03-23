@@ -35,7 +35,18 @@ git clone https://github.com/YOUR-ORG/agent0-for-superpowers-YOUR-COMPANY.git
 cd agent0-for-superpowers-YOUR-COMPANY
 ```
 
-### 2. Replace Placeholders
+### 2. Customize content
+
+**Recommended: `config.yaml` + build**
+
+```bash
+cp config.yaml.example config.yaml
+# Edit company, plugin_id (must match plugin.json "name"), tools, SLAs
+./build.sh
+# Install from generated plugin/ (see PLUGIN-BUILD.md)
+```
+
+**Alternative: manual `find` / `sed`**
 
 **Find all placeholders:**
 ```bash
@@ -58,14 +69,18 @@ find . -type f -name "*.md" -not -path "./.git/*" -exec sed -i '' \
   {} +
 ```
 
-**See `policies/README.md` for full list of placeholders.**
+See [PLUGIN-BUILD.md](PLUGIN-BUILD.md) and [docs/CUSTOMIZATION-GUIDE.md](docs/CUSTOMIZATION-GUIDE.md) for the full placeholder list.
 
-### 3. Remove .template Suffix
+### 3. Remove .template Suffix (per domain)
 
 ```bash
-cd policies/
-for f in *.template.md; do
-  mv "$f" "${f%.template.md}.md"
+for d in security engineering product ux; do
+  pol="$d/policies"
+  [ -d "$pol" ] || continue
+  (cd "$pol" && for f in *.template.md; do
+    [ -f "$f" ] || continue
+    mv "$f" "${f%.template.md}.md"
+  done)
 done
 ```
 
@@ -82,12 +97,14 @@ done
 }
 ```
 
-**Edit `AGENT-INDEX.md`:**
+**Edit `AGENT-INDEX.md` (if not using build):**
 ```markdown
 # Acme Agent Index
 
 Spawn via `Agent(subagent_type="agent0-for-superpowers-acme:<agent-name>")`.
 ```
+
+If you use `./build.sh`, set `plugin_id` in `config.yaml` to match `plugin.json` `name`; the build fills `{{plugin_id}}` and `{{COMPANY_NAME}}` in `AGENT-INDEX.md` inside `plugin/`.
 
 ### 5. Commit Your Customizations
 
@@ -213,31 +230,31 @@ claude
 ### Specialist Teams Own Their Agents
 
 **Security team maintains:**
-- `agents/security/Security-Engineer.md`
-- `agents/security/Security-Architect.md`
-- `skills/security/` (if you add security skills)
-- `policies/SECURITY-POLICY.md`
+- `security/agents/Security-Engineer.md`
+- `security/agents/Security-Architect.md`
+- `security/skills/` (security skills)
+- `security/policies/SECURITY-POLICY.md` (after renaming from `.template.md`)
 
 **UX team maintains:**
-- `agents/ux/UX-Engineer.md`
-- `agents/ux/Technical-Writer.md`
-- `skills/ux/` (if you add UX skills)
-- `policies/UX-STANDARDS.md`
+- `ux/agents/UX-Engineer.md`
+- `ux/agents/Technical-Writer.md`
+- `ux/skills/` (UX skills)
+- `ux/policies/UX-STANDARDS.md`
 
 **SET team maintains:**
-- `agents/engineering/Software-Engineer-In-Test.md`
-- `skills/testing/` (if you add testing skills)
-- `policies/TESTING-POLICY.md`
+- `engineering/agents/Software-Engineer-In-Test.md`
+- `engineering/skills/testing/` (testing skills)
+- `engineering/policies/TESTING-POLICY.md`
 
 ### Updating Content
 
 ```bash
 # 1. Specialist edits their agent/policy
 cd agent0-for-superpowers-acme
-vim agents/security/Security-Engineer.md
+vim security/agents/Security-Engineer.md
 
 # 2. Commit and push
-git add agents/security/Security-Engineer.md
+git add security/agents/Security-Engineer.md
 git commit -m "security: update approved auth libraries"
 git push
 

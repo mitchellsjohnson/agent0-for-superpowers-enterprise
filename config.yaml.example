@@ -15,6 +15,9 @@
 company: YOUR_COMPANY_NAME
 company_short: YCN
 
+# Plugin package id — must match .claude-plugin/plugin.json "name" (used in spawn + skill references)
+plugin_id: agent0-for-superpowers-YCN
+
 # Security
 security:
   sast_tool: YOUR_SAST_TOOL

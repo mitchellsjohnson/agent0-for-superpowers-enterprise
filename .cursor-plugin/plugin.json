@@ -1,7 +1,7 @@
 {
   "name": "agent0-for-superpowers-enterprise",
   "version": "1.0.0",
-  "description": "Enterprise framework for Agent0 specialist agents - fork and customize for your company",
+  "description": "Enterprise Agent0 for Superpowers — org-first layout; fork, set config.yaml, run build.sh, install plugin/",
   "author": {
     "name": "Mitchell S Johnson"
   },

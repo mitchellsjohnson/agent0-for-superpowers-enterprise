@@ -1,7 +1,7 @@
 {
   "name": "agent0-for-superpowers-enterprise",
   "version": "1.0.0",
-  "description": "Enterprise framework for Superpowers - agents, skills, and policies for company-specific compliance",
+  "description": "Enterprise framework for Superpowers — org-first specialists (security, data, engineering, product, ux), config-driven build",
   "author": "Your Company",
   "license": "MIT",
   "homepage": "https://github.com/your-org/agent0-for-superpowers-enterprise",

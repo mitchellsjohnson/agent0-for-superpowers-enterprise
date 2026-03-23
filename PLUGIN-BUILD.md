@@ -25,15 +25,36 @@ git clone git@github.com:YOUR-COMPANY/agent0-for-superpowers-YOUR-COMPANY.git
 cd agent0-for-superpowers-YOUR-COMPANY
 ```
 
-## Step 2: Replace Placeholders
+## Step 2: Customize (config + build — recommended)
 
-### Find All Placeholders
+1. Copy and edit configuration:
+
+```bash
+cp config.yaml.example config.yaml
+```
+
+2. Set at minimum: `company`, `company_short`, `plugin_id` (must match `.claude-plugin/plugin.json` `name`), and your security/testing/UX/product/engineering values.
+
+3. Build the installable plugin directory:
+
+```bash
+chmod +x build.sh   # once
+./build.sh
+```
+
+This copies `security/`, `data/`, `engineering/`, `product/`, `ux/`, `AGENT-INDEX.md`, and plugin metadata into `plugin/`, substitutes placeholders from `config.yaml`, then applies `overrides/` if present.
+
+4. Install **from `plugin/`** for local testing, or commit your fork and use `git@...` install (CI can rebuild `plugin/` — see `.github/workflows/build.yml`).
+
+### Alternative: manual placeholder replacement
+
+**Find all placeholders:**
 
 ```bash
 grep -r "{{" . --include="*.md" | grep -v ".git"
 ```
 
-### Common Replacements
+**Common replacements:**
 
 ```bash
 # Company name
@@ -50,14 +71,18 @@ find . -type f -name "*.md" -not -path "./.git/*" -exec sed -i '' \
   {} +
 ```
 
-**See `policies/README.md` for full list of placeholders.**
+See [docs/CUSTOMIZATION-GUIDE.md](docs/CUSTOMIZATION-GUIDE.md) for the full placeholder list.
 
-### Remove Template Files
+### Remove template suffix (per domain)
 
 ```bash
-cd policies/
-for f in *.template.md; do
-  mv "$f" "${f%.template.md}.md"
+for d in security engineering product ux; do
+  pol="$d/policies"
+  [ -d "$pol" ] || continue
+  (cd "$pol" && for f in *.template.md; do
+    [ -f "$f" ] || continue
+    mv "$f" "${f%.template.md}.md"
+  done)
 done
 ```
 
@@ -159,7 +184,9 @@ You need to update plugin metadata for **both Claude Code and Cursor**.
 
 ### Update `AGENT-INDEX.md`
 
-Change the spawn syntax:
+If you use `./build.sh`, set `plugin_id` in `config.yaml` to match `plugin.json` `name`; the build fills `{{plugin_id}}` and `{{COMPANY_NAME}}` in the copy under `plugin/`.
+
+Manual fork workflow:
 
 ```markdown
 # Acme Agent Index
@@ -244,7 +271,7 @@ Update version in `plugin.json` when making changes:
 
 ```bash
 # 1. Make changes
-vim agents/security/Security-Engineer.md
+vim security/agents/Security-Engineer.md
 
 # 2. Bump version
 vim .claude-plugin/plugin.json
@@ -262,10 +289,10 @@ git push
 ### Specialist Team Ownership
 
 **Who maintains what:**
-- Security team → `agents/security/`, `policies/SECURITY-POLICY.md`
-- UX team → `agents/ux/`, `policies/UX-STANDARDS.md`
-- SET team → `agents/engineering/Software-Engineer-In-Test.md`, `policies/TESTING-POLICY.md`
-- Product team → `agents/product/`, `policies/HANDOFF-POLICY.md`
+- Security team → `security/agents/`, `security/policies/SECURITY-POLICY.md`
+- UX team → `ux/agents/`, `ux/policies/UX-STANDARDS.md`
+- SET team → `engineering/agents/Software-Engineer-In-Test.md`, `engineering/policies/TESTING-POLICY.md`
+- Product team → `product/agents/`, `product/policies/HANDOFF-POLICY.md`
 
 **GitHub permissions:**
 - **Write**: Specialist teams (can update their domains)
@@ -366,7 +393,7 @@ Agent(subagent_type="YOUR-PLUGIN-NAME:Security-Engineer")
 ## FAQ
 
 **Q: Can we mix generic and company-specific agents?**
-A: Yes! Keep generic agents as-is, add company-specific ones to `agents/`.
+A: Yes! Keep generic agents as-is, add company-specific ones under the right domain, e.g. `security/agents/` or `overrides/security/agents/` for build-time overrides.
 
 **Q: Should we publish to public marketplace?**
 A: Usually no - keep private on GitHub. Only publish if you want to share with the world.
@@ -398,5 +425,5 @@ A: When policies change, tools change, or feedback indicates agent guidance is w
 
 - **INSTALLATION.md**: How engineers install the plugin
 - **SUPERPOWERS-INTEGRATION.md**: How Superpowers spawns specialists
-- **agents/README.md**: How to add new agents
-- **policies/README.md**: List of all placeholders
+- **engineering/agents/README.md** (and other `*/agents/README.md`): How to add agents per domain
+- **docs/CUSTOMIZATION-GUIDE.md**: Placeholders and customization

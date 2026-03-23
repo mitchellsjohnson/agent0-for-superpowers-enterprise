@@ -1,3 +1,6 @@
+# Local fork configuration (never commit secrets)
+config.yaml
+
 .DS_Store
 *.swp
 *~

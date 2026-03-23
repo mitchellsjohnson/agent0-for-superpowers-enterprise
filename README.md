@@ -31,23 +31,26 @@ See [MIGRATION.md](MIGRATION.md) for detailed comparison and migration paths.
 git clone https://github.com/YOUR-ORG/agent0-for-superpowers-YOUR-COMPANY.git
 cd agent0-for-superpowers-YOUR-COMPANY
 
-# 3. Replace placeholders with your company values
-find . -type f -name "*.md" -exec sed -i 's/{{COMPANY_NAME}}/Acme/g' {} +
-# See policies/README.md for full placeholder list
+# 3. Configure and build (recommended)
+cp config.yaml.example config.yaml
+# Edit config.yaml: company, plugin_id, tools, SLAs — must match plugin.json "name"
+./build.sh
+# Output: plugin/ directory ready to install
 
-# 4. Update plugin metadata
-# Edit .claude-plugin/plugin.json with your company name
-# Edit AGENT-INDEX.md with your company name
+# 4. (Alternative) Manual placeholder replacement — see PLUGIN-BUILD.md
 
-# 5. Commit and push
+# 5. Update plugin metadata if needed
+# Edit .claude-plugin/plugin.json and .cursor-plugin/plugin.json (name must match config plugin_id)
+
+# 6. Commit and push
 git add -A && git commit -m "feat: customize for Acme" && git push
 
-# 6. Install in Claude Code
+# 7. Install in Claude Code (from repo root or point at plugin/)
 claude
 /plugin install superpowers
 /plugin install git@github.com:YOUR-ORG/agent0-for-superpowers-YOUR-COMPANY.git
 
-# 7. Test it works
+# 8. Test it works
 /plugin list  # Should show both plugins
 "What company specialists are available?"  # Should list your agents
 ```
@@ -162,11 +165,11 @@ Total: 2 days (zero rework, zero wait time, professional handoff)
 
 ## Documentation
 
-- **Policies**: See `policies/` for security, testing, UX, and tech stack templates
-- **Agents**: See `agents/` for agent definitions (Engineering, Security, UX, Product, SET)
-- **Skills**: See `skills/` for reusable workflows (security scanning, testing, accessibility)
+- **Org-first layout**: `security/`, `data/`, `engineering/`, `product/`, `ux/` — each has `agents/`, `skills/`, `policies/`, `tools/`
+- **Policies**: e.g. `security/policies/`, `engineering/policies/`, `ux/policies/`, `product/policies/` (templates use `.template.md` until finalized)
+- **Build**: `config.yaml.example`, `build.sh`, and [PLUGIN-BUILD.md](PLUGIN-BUILD.md)
 - **Integration**: See `integrations/` for MCP server setup and CI/CD patterns
-- **Agent Index**: See `AGENT-INDEX.md` for how Superpowers discovers specialists
+- **Agent index**: `AGENT-INDEX.md` — how Superpowers discovers specialists (paths listed there)
 
 ## License
 

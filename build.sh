@@ -16,7 +16,9 @@ mkdir -p plugin/
 
 # 2. Copy base templates
 echo "📄 Copying base templates..."
-cp -r security/ data/ engineering/ product/ ux/ plugin/
+# Use source dirs without trailing slashes so each domain becomes plugin/<domain>/
+# (security/ + plugin/ would merge children into plugin/ on BSD/macOS cp)
+cp -R security data engineering product ux plugin/
 cp -r .claude-plugin/ .cursor-plugin/ AGENT-INDEX.md plugin/
 
 # 3. Load config.yaml and perform substitutions
@@ -26,6 +28,10 @@ echo "🔧 Applying config.yaml substitutions..."
 # Read config values
 COMPANY=$(grep "^company:" config.yaml | sed 's/company: *//')
 COMPANY_SHORT=$(grep "^company_short:" config.yaml | sed 's/company_short: *//')
+PLUGIN_ID=$(grep "^plugin_id:" config.yaml | sed 's/plugin_id: *//' | tr -d " '\"")
+if [ -z "$PLUGIN_ID" ]; then
+  PLUGIN_ID="agent0-for-superpowers-$(echo "$COMPANY_SHORT" | tr '[:upper:]' '[:lower:]')"
+fi
 
 # Security
 SAST_TOOL=$(grep "^  sast_tool:" config.yaml | sed 's/.*sast_tool: *//')
@@ -86,6 +92,21 @@ find plugin/ -type f -name "*.md" | while read -r file; do
     -e "s|{{engineering.repo_host}}|${REPO_HOST}|g" \
     -e "s|{{engineering.ci_cd}}|${CI_CD}|g" \
     -e "s|{{engineering.artifact_registry}}|${ARTIFACT_REGISTRY}|g" \
+    -e "s|{{COMPANY_NAME}}|${COMPANY}|g" \
+    -e "s|{{plugin_id}}|${PLUGIN_ID}|g" \
+    -e "s|{{PLUGIN_NAME}}|${PLUGIN_ID}|g" \
+    -e "s|{{COMPANY_SAST_TOOL}}|${SAST_TOOL}|g" \
+    -e "s|{{COMPANY_SCA_TOOL}}|${SCA_TOOL}|g" \
+    -e "s|{{COMPANY_DEPENDENCY_SCANNER}}|${SCA_TOOL}|g" \
+    -e "s|{{COMPANY_SECRETS_TOOL}}|${SECRETS_SCANNER}|g" \
+    -e "s|{{CRITICAL_SLA_DAYS}}|${CRITICAL_SLA}|g" \
+    -e "s|{{HIGH_SLA_DAYS}}|${HIGH_SLA}|g" \
+    -e "s|{{MEDIUM_SLA_DAYS}}|${MEDIUM_SLA}|g" \
+    -e "s|{{COVERAGE_THRESHOLD}}|${COVERAGE}|g" \
+    -e "s|{{COMPANY_CI_CD_TOOL}}|${CI_CD}|g" \
+    -e "s|{{COMPANY_ARTIFACT_REPO}}|${ARTIFACT_REGISTRY}|g" \
+    -e "s|{{CRITICAL_ESCALATION}}|VP Engineering|g" \
+    -e "s|{{HIGH_ESCALATION}}|Engineering Manager|g" \
     "$file" > "$file.tmp" && mv "$file.tmp" "$file"
 done
 

@@ -31,7 +31,7 @@ Edit `.claude-plugin/plugin.json`:
 
 ## Step 2: Customize Policy Templates
 
-Each file in `policies/` is a template. Replace placeholders:
+Policy templates live under each domain, e.g. `security/policies/`, `engineering/policies/`, `ux/policies/`, `product/policies/`. Replace placeholders:
 
 ### Example: SECURITY-POLICY.template.md
 
@@ -57,9 +57,9 @@ Repeat for all policy templates.
 
 ## Step 3: Customize Agents
 
-Each agent in `agents/` references `{{COMPANY_TOOL}}` placeholders.
+Each agent under `*/agents/` references `{{COMPANY_*}}` placeholders (or use `config.yaml` + `./build.sh` to substitute them in `plugin/`).
 
-### Example: agents/security/Security-Engineer.md
+### Example: security/agents/Security-Engineer.md
 
 **Before:**
 ```markdown
@@ -75,9 +75,9 @@ Update all agents with your company's actual tools and processes.
 
 ## Step 4: Add Company-Specific Skills
 
-Create skills for your company's tools in `skills/`:
+Create skills under the matching domain, e.g. `security/skills/`, `engineering/skills/`:
 
-### Example: skills/security/vulnerability-scan/
+### Example: security/skills/vulnerability-scan/
 
 ```
 skills/security/vulnerability-scan/

@@ -1,3 +1,16 @@
+# ============================================================================
+# Agent0 for Superpowers - Company Configuration
+# ============================================================================
+#
+# IMPORTANT FORMATTING REQUIREMENTS:
+# - Use standard YAML indentation (2 spaces per level)
+# - Values must not contain unescaped special characters
+# - Multi-line values are not supported by the build script
+# - Maintain the exact indentation structure shown below
+#
+# Copy this file to config.yaml and customize all values before building.
+# ============================================================================
+
 # Company identity
 company: YOUR_COMPANY_NAME
 company_short: YCN

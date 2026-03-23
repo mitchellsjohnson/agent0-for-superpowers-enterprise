@@ -19,7 +19,9 @@ echo "📄 Copying base templates..."
 # Use source dirs without trailing slashes so each domain becomes plugin/<domain>/
 # (security/ + plugin/ would merge children into plugin/ on BSD/macOS cp)
 cp -R security data engineering product ux plugin/
-cp -r .claude-plugin/ .cursor-plugin/ AGENT-INDEX.md plugin/
+cp -R .claude-plugin plugin/.claude-plugin
+cp -R .cursor-plugin plugin/.cursor-plugin
+cp AGENT-INDEX.md plugin/
 
 # 3. Load config.yaml and perform substitutions
 echo "🔧 Applying config.yaml substitutions..."

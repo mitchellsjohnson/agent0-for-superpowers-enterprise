@@ -1,0 +1,34 @@
+name: Build Plugin
+
+on:
+  push:
+    paths:
+      - 'config.yaml'
+      - 'overrides/**'
+      - 'security/**'
+      - 'data/**'
+      - 'engineering/**'
+      - 'product/**'
+      - 'ux/**'
+      - 'build.sh'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build plugin
+        run: ./build.sh
+
+      - name: Commit built plugin
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add plugin/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Build plugin [skip ci]"
+            git push
+          fi

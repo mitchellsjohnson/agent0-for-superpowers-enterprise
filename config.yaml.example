@@ -1,0 +1,43 @@
+# Company identity
+company: YOUR_COMPANY_NAME
+company_short: YCN
+
+# Security
+security:
+  sast_tool: YOUR_SAST_TOOL
+  sca_tool: YOUR_SCA_TOOL
+  secrets_scanner: YOUR_SECRETS_SCANNER
+  slas:
+    critical: 7
+    high: 30
+    medium: 90
+  policy_urls:
+    main: https://your-company.com/security/policy
+    authentication: https://your-company.com/security/auth
+
+# Testing
+testing:
+  coverage_threshold: 80
+  frameworks:
+    java: JUnit 5
+    javascript: Jest
+  mutation_testing: false
+
+# UX
+ux:
+  design_system: YOUR_DESIGN_SYSTEM
+  design_system_url: https://design.your-company.com
+  accessibility_standard: WCAG 2.1 AA
+  figma_workspace: https://figma.com/your-company
+
+# Product
+product:
+  issue_tracker: Jira
+  project_key: PROJ
+  roadmap_url: https://roadmap.your-company.internal
+
+# Engineering
+engineering:
+  repo_host: GitHub
+  ci_cd: GitHub Actions
+  artifact_registry: YOUR_ARTIFACT_REGISTRY

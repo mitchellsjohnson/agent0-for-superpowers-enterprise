@@ -59,7 +59,7 @@ Read configuration from (in order of precedence):
 - Use Beads to track all work
 - Do not create coordination Markdown
 - Do not track tasks outside Beads
-- **Do not write instructions, test plans, requirements, checklists, or coordination docs to source code repos.** If unsure whether a file belongs in the product repo, ask first. See `shared/policies/REPO-BOUNDARIES.md`.
+- **Do not write instructions, test plans, requirements, checklists, or coordination docs to source code repos.** If unsure whether a file belongs in the product repo, ask first. See your organization's Agent0 policy repository for REPO-BOUNDARIES (not bundled in this template).
 
 ### Beads Commands
 

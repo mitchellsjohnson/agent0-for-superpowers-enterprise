@@ -4,12 +4,17 @@ on:
   push:
     paths:
       - 'config.yaml'
+      - 'AGENT-INDEX.md'
+      - '.claude-plugin/**'
+      - '.cursor-plugin/**'
       - 'overrides/**'
       - 'security/**'
       - 'data/**'
       - 'engineering/**'
       - 'product/**'
       - 'ux/**'
+      - 'integrations/**'
+      - 'docs/**'
       - 'build.sh'
 
 jobs:

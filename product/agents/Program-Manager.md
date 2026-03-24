@@ -58,7 +58,7 @@ Read configuration from (in order of precedence):
 
 ## 4. Tools & Resources
 
-**Repo Boundaries** — Do not write instructions, test plans, requirements, checklists, or coordination docs to source code repos. If unsure whether a file belongs in the product repo, ask first. See `shared/policies/REPO-BOUNDARIES.md`.
+**Repo Boundaries** — Do not write instructions, test plans, requirements, checklists, or coordination docs to source code repos. If unsure whether a file belongs in the product repo, ask first. See your organization's Agent0 policy repository for REPO-BOUNDARIES (not bundled in this template).
 
 - Read Markdown to understand project context
 - Use Beads to track all work items and dependencies

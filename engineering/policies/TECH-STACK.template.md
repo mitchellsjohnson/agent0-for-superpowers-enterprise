@@ -208,7 +208,7 @@ Only models from US-based providers are permitted for agent-based development:
 - No local/self-hosted models without explicit security team approval
 - No routing through third-party proxy services (OpenRouter, etc.) without security review
 - All agent sessions process code that may include proprietary/trade secret material
-- Model cost optimization is managed by Agent0 (see `shared/skills/orchestration/model-cost-optimization.md`)
+- Model cost optimization is managed per org Agent0 / Superpowers orchestration policies (document in your fork or internal wiki).
 
 ---
 

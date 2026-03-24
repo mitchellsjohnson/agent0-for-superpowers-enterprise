@@ -13,7 +13,7 @@ Defines how we use Radix `Text` and `Heading` components for typography across t
 - When setting heading hierarchy for accessibility (`as` prop)
 
 ## Reference
-**Related:** `shared/skills/ux/design-system/badge.md` — Badge patterns that use typography. Form labels and help text. Empty and error state typography.
+**Related:** `ux/skills/design-system/badge.md` — Badge patterns that use typography. Form labels and help text. Empty and error state typography.
 
 ---
 
@@ -134,7 +134,7 @@ Defines how we use Radix `Text` and `Heading` components for typography across t
 
 ## Related
 
-- **Badge:** `shared/skills/ux/design-system/badge.md` — Badge typography patterns
+- **Badge:** `ux/skills/design-system/badge.md` — Badge typography patterns
 - **Layout:** Spacing and structure
 - **Forms:** Form labels & typography
 - **UI States:** Empty state, error state typography

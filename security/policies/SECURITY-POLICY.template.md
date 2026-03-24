@@ -125,7 +125,7 @@ Guide MCP tools:
   - getRecommendedComponentVersions: Get safe upgrade recommendations
 ```
 
-See `shared/mcp/GUIDE-MCP.md` for detailed usage.
+Document Guide MCP setup in your fork (`integrations/`, wiki, or internal MCP catalog).
 
 ### Security Skills
 
@@ -133,10 +133,10 @@ Agents should use these skills for security work:
 
 | Skill | Location | Purpose |
 |-------|----------|---------|
-| `lifecycle-scan.md` | `shared/skills/security/` | SCA scanning and remediation |
-| `sast-scan.md` | `shared/skills/security/` | Static analysis (placeholder) |
-| `threat-modeling.md` | `shared/skills/security/` | STRIDE threat modeling |
-| `secure-coding.md` | `shared/skills/engineering/` | Secure coding patterns |
+| `lifecycle-scan` | `security/skills/` (e.g. `lifecycle-scan/`) | SCA scanning and remediation |
+| `sast-scan` | `security/skills/` (e.g. `sast-scan/`) | Static analysis |
+| `threat-modeling` | `security/skills/threat-modeling/` | STRIDE threat modeling |
+| `secure-coding` | `engineering/skills/secure-coding/` | Secure coding patterns |
 
 ---
 

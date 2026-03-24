@@ -9,7 +9,7 @@ description: Use when validating Definition of Done for completed work — SET v
 
 This skill provides the operational procedure for SoftwareEngineerInTest to validate the Definition of Done checklist against completed work.
 
-**Read the canonical DoD policy first**: `shared/policies/DEFINITION-OF-DONE.md`
+**Read the canonical testing / handoff policies first**: `engineering/policies/TESTING-POLICY.template.md`, `product/policies/HANDOFF-POLICY.template.md`
 
 ---
 
